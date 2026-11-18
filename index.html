@@ -237,6 +237,66 @@ header .scorebox span:last-child{font-size:10px!important;color:#d4e7db!importan
 .seat.bottom{z-index:40!important;overflow:visible!important}
 .seat.bottom .bidchip{position:absolute!important;left:50%!important;bottom:calc(100% + 160px)!important;transform:translateX(-50%)!important;white-space:nowrap!important;min-width:max-content!important;padding:8px 16px!important;font-size:17px!important;border:2px solid #f6d07d!important;box-shadow:0 5px 16px #000b!important;pointer-events:none!important}
 @media(max-width:850px){.seat.bottom .bidchip{bottom:calc(100% + 128px)!important;font-size:13px!important;padding:6px 10px!important}}
+
+/* Adaptation mobile : conserve la logique de jeu et le mode apprentissage. */
+@media (max-width: 700px) {
+ html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+ main{width:100%!important;max-width:100%!important;min-height:100dvh!important;padding:5px 5px 80px!important;overflow-x:hidden!important}
+ .board{width:100%!important;min-width:0!important;height:clamp(510px,69dvh,650px)!important;min-height:510px!important;border-width:6px!important;border-radius:14px!important;overflow:hidden!important}
+ header{left:13px!important;top:12px!important;transform:scale(.74);transform-origin:top left;max-width:48vw!important}
+ header .logo{padding:4px 8px!important;border-width:2px!important;gap:4px!important}
+ header h1{font-size:26px!important;white-space:nowrap!important}
+ header .emblem{width:25px!important;height:25px!important;font-size:18px!important}
+ header .score{top:53px!important;left:0!important;gap:4px!important}
+ header .scorebox{min-width:79px!important;padding:3px 6px!important}
+ header .scorebox b{font-size:24px!important}
+ .bidstrip{right:10px!important;top:12px!important;width:43%!important;max-height:116px!important;overflow:auto!important;padding:6px!important;border-width:1px!important;gap:1px!important}
+ .bidstrip span{font-size:9px!important;line-height:1.25!important}
+ .seat{min-width:0!important;width:93px!important;max-width:93px!important;padding:4px!important;border-width:1px!important;border-radius:10px!important}
+ .seat .seatname{font-size:11px!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+ .seat .seatsub{font-size:8px!important;margin-top:1px!important}
+ .seat.top{top:5px!important}
+ .seat.left{left:2px!important;top:43%!important}
+ .seat.right{right:2px!important;top:43%!important}
+ .seat.bottom{bottom:1px!important}
+ .seat.bottom .bidchip{bottom:calc(100% + 104px)!important;font-size:11px!important;padding:4px 6px!important;max-width:90vw!important;white-space:normal!important}
+ .opp-hand.top{top:33px!important;transform:translateX(-50%) scale(.57)!important}
+ .opp-hand.left{left:-15px!important;top:43%!important;transform:translateY(-50%) scale(.56)!important}
+ .opp-hand.right{right:-15px!important;top:43%!important;transform:translateY(-50%) scale(.56)!important}
+ .play-slot{width:52px!important;height:76px!important}
+ .play-slot .card{width:50px!important;height:73px!important;font-size:17px!important}
+ .slot-top{top:104px!important;left:50%!important}
+ .slot-left{left:26%!important;top:45%!important}
+ .slot-right{right:26%!important;top:45%!important}
+ .slot-bottom{bottom:132px!important;left:50%!important}
+ .handarea{width:96%!important;bottom:24px!important;left:50%!important;max-width:100%!important}
+ .hand{min-height:115px!important;padding:6px 0 0!important}
+ .hand .card{width:clamp(48px,15.5vw,69px)!important;height:clamp(76px,23vw,102px)!important;flex-basis:clamp(48px,15.5vw,69px)!important;margin-left:-10px!important}
+ .hand .card:first-child{margin-left:0!important}
+ .hand .card .corner{font-size:12px!important}
+ .hand .card .court-photo{left:14%!important;width:72%!important}
+ .hand-controls{bottom:-8px!important;left:0!important;right:0!important;justify-content:space-between!important}
+ .hand-controls button{font-size:9px!important;padding:5px 7px!important}
+ .board .trickcounter.ours,.board .trickcounter.theirs{bottom:6px!important;top:auto!important;width:73px!important;padding:3px!important;min-width:0!important}
+ .board .trickcounter.ours{left:5px!important}
+ .board .trickcounter.theirs{right:5px!important;left:auto!important}
+ .trickcounter .ctitle,.trickcounter .scorecaption{font-size:8px!important}
+ .trickcounter .number{font-size:14px!important}
+ .bottomrow{grid-template-columns:1fr!important;gap:5px!important;margin-top:6px!important}
+ .bottomrow .panel{padding:8px!important;border-radius:10px!important}
+ .bottomrow .panel:last-child{display:none!important}
+ .status{font-size:13px!important}
+ .actions{gap:5px!important;margin-top:6px!important}
+ .actions button{font-size:12px!important;padding:9px 11px!important;min-height:39px!important}
+ .panel .muted{font-size:10px!important;margin-top:4px!important}
+ header #namesBtn,header #restart{position:fixed!important;bottom:7px!important;right:8px!important;font-size:10px!important;padding:6px 8px!important}
+ header #namesBtn{right:113px!important}
+ #learningStatus{font-size:10px!important}
+ #learningStatus+button,#learnExport{font-size:10px!important;padding:6px!important}
+ body>div:has(>#learningStatus){position:relative!important;bottom:auto!important;right:auto!important;margin:6px 6px 0!important;max-width:none!important;padding:6px 8px!important;z-index:10!important}
+}
+@media(max-width:380px){.seat{width:81px!important}.hand .card{margin-left:-12px!important}.slot-left{left:25%!important}.slot-right{right:25%!important}.bidstrip{width:40%!important}}
+@media(max-width:700px) and (orientation:landscape){.board{height:550px!important;min-height:550px!important}}
 </style></head><body><div id="carotteFail" role="status" aria-live="assertive"><strong>🥕 CAROTTE MANQUÉE!</strong><span>Une levée perdue — contrat impossible</span></div><main><header><div class="logo"><div class="emblem">🥕</div><div><div class="eyebrow">ÉDITION FAMILIALE</div><h1>La Carotte</h1></div></div><div class="score"><div class="scorebox friend"><span>NOUS</span><b id="s0">0</b><span>/ 32 points</span></div><div class="scorebox enemy"><span>VOUS</span><b id="s1">0</b><span>/ 32 points</span></div><button class="small secondary" id="namesBtn">✎ Noms des joueurs</button><button class="small secondary" id="restart">Recommencer</button></div></header><div class="bidstrip" id="bidstrip"></div><div class="board"><div class="trickcounter ours" id="pileours"><span class="ctitle">NOUS</span><span class="scorecaption">Levées gagnées</span><span class="number" id="winsours">0 / 6</span><div class="pile" id="cardsours"></div></div><div class="trickcounter theirs" id="piletheirs"><span class="ctitle">VOUS</span><span class="scorecaption">Levées gagnées</span><span class="number" id="winstheirs">0 / 6</span><div class="pile" id="cardstheirs"></div></div><div class="opp-hand top" id="opphand2" aria-label="Cartes cachées du partenaire"></div><div class="opp-hand left" id="opphand1" aria-label="Cartes cachées de l’adversaire de gauche"></div><div class="opp-hand right" id="opphand3" aria-label="Cartes cachées de l’adversaire de droite"></div><div class="seat top" id="seat2"></div><div class="seat left" id="seat1"></div><div class="seat right" id="seat3"></div><div class="table"><div class="contract" id="contract">Annonces</div><div class="dealer" id="dealer"></div><div class="progress" id="progress"></div></div><div class="seat bottom" id="seat0"></div><div class="play-slot slot-top" id="slot2"></div><div class="play-slot slot-left" id="slot1"></div><div class="play-slot slot-right" id="slot3"></div><div class="play-slot slot-bottom" id="slot0"></div></div><div class="handarea"><div class="handtitle">TA MAIN • Glisse les cartes pour les réorganiser</div><div class="hand" id="hand"></div><div class="hand-controls"><button id="sortSuit" class="small secondary" type="button">Trier par sorte</button><button id="sortRank" class="small secondary" type="button">Trier par valeur</button><span class="muted">Glisse les cartes pour les placer à ton goût</span></div></div><div class="bottomrow"><div class="panel"><div class="status" id="status"></div><div class="actions" id="controls"></div><div class="muted" id="hint"></div></div><div class="panel"><b>Historique de la donne</b><div class="log" id="log"></div></div></div><p class="muted">Version de test · Noms personnalisables · Sans musique de fond · Levées suivantes automatiques · Piles de levées visibles · Annonces visibles au-dessus des joueurs · 4 joueurs · Annonces avant choix de l'atout · Carotte à 12 points · IA stratégique : mémoire des cartes et gestion des atouts · Aucune installation.</p></main><div id="namesDialog" role="dialog" aria-modal="true" aria-label="Personnaliser les joueurs"><div class="names-box"><h2>✎ Noms des joueurs</h2><p>Les partenaires sont face à face. Les noms seront conservés sur cet ordinateur.</p><div class="names-grid"><label>Toi (en bas)<input id="name0" maxlength="22" autocomplete="off"></label><label>Adversaire 1 (à gauche)<input id="name1" maxlength="22" autocomplete="off"></label><label>Partenaire IA (en haut)<input id="name2" maxlength="22" autocomplete="off"></label><label>Adversaire 2 (à droite)<input id="name3" maxlength="22" autocomplete="off"></label></div><div class="names-actions"><button id="namesCancel" class="secondary">Annuler</button><button id="namesSave">Enregistrer les noms</button></div></div></div><div id="celebration" aria-live="polite"></div><div id="matchEnd" role="dialog" aria-modal="true" aria-label="Résultat de la partie"><div class="result-panel"><div class="result-emoji" id="resultEmoji"></div><h2 id="resultTitle"></h2><p id="resultDesc"></p><button id="resultReplay">Nouvelle partie</button></div></div><script>
 'use strict';const SUITS=['♠','♣','♥','♦'],RANKS=['9','10','V','D','R','A'];let g;let trickTimer=null;let aiPlayTimer=null;const $=id=>document.getElementById(id);const team=p=>p%2===0?0:1; // 0 humain, 2 partenaire; 1 et 3 vous
 const defaultNames=['Toi','Adversaire 1','Partenaire IA','Adversaire 2'];
